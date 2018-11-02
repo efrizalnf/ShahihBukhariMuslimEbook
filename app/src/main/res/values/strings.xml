@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shahih Bukhari Muslim</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Hadits</string>
+    <string name="menu_syarah">Syarah</string>
+    <string name="menu_keterangan">Keterangan</string>
+</resources>

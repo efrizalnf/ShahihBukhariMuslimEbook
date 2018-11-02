@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:title="@string/menu_home"
+        android:icon="@mipmap/ic_launcher_round"
+        />
+    <item
+        android:id="@+id/menu_syarah"
+        android:title="@string/menu_syarah"
+        android:icon="@mipmap/ic_launcher_round"
+        />
+
+    <item
+        android:id="@+id/menu_keterangan"
+        android:title="@string/menu_keterangan"
+        android:icon="@mipmap/ic_launcher_round" />
+</menu>
