@@ -10,10 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.zlz.ebook.shahihbukharimuslim.R;
+
 
 public class SyarahActivity extends AppCompatActivity {
     private View parentView;
@@ -29,6 +31,7 @@ public class SyarahActivity extends AppCompatActivity {
         webView1 = (WebView) findViewById(R.id.syarahWebView);
         String summary = "<html><head><title>Title of the document</title></head><body><h1><a href=\"file:///android_asset/syarah_bab1\">LINK</a></h1><h1><a href=\"http://www.google.com/\">Link to GOOGLE.COM</a></h1></body></html>";
         webView1.loadData(summary, "text/html", null);
+
 //        webView1.setWebViewClient(new MyWebViewClient(this));
     }
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

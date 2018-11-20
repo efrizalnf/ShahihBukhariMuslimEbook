@@ -1,12 +1,16 @@
 package com.zlz.ebook.shahihbukharimuslim;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -68,6 +72,24 @@ public class MenuFragment extends Fragment {
             simpleWebView.setWebViewClient(new MyWebViewClient(getActivity()));
             simpleWebView.loadData(summary, "text/html", null);
             simpleWebView.loadUrl(url);
+            
+            //custom alert for java script
+            simpleWebView.setWebChromeClient(new WebChromeClient(){
+
+                public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
+                    AlertDialog dialog = new AlertDialog.Builder(view.getContext()).
+                            setTitle("YourAlertTitle").
+                            setMessage(message).
+                            setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //do nothing
+                                }
+                            }).create();
+                    dialog.show();
+                    result.confirm();
+                    return true;
+                } });
 
         }
 
@@ -78,8 +100,12 @@ public class MenuFragment extends Fragment {
         webSettings.setDisplayZoomControls(false);
 
         webSettings.setJavaScriptEnabled(true);
-    }
-//    public class WebAppInterface {
+
+}
+
+
+
+    //    public class WebAppInterface {
 //
 //        Context mContext;
 //
@@ -105,8 +131,7 @@ public class MenuFragment extends Fragment {
         }
     }
 
-
-
+ }
 
 //    @Override
 //    public void onSaveInstanceState(Bundle outState) {
@@ -114,4 +139,3 @@ public class MenuFragment extends Fragment {
 //        outState.putInt(ARG_COLOR, mColor);
 //        super.onSaveInstanceState(outState);
 //    }
-}
